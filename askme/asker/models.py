@@ -14,3 +14,7 @@ class Question(models.Model):
         on_delete=models.CASCADE)
     title = models.CharFields(max_lenght=128)
     created_at = models.DateTimeField()
+
+class QuestionManager(models.Model):
+    def new(self):
+        return self.order_by('-created_at')
